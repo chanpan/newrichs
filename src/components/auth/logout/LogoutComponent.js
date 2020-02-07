@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { logout } from '../../../actions/LoginAction';
+import { logout,getToken } from '../../../actions/LoginAction';
 import { connect } from 'react-redux';
 
 class LogoutComponent extends Component {
     componentDidMount() {
         this.props.logout(this.props.history);
+        this.props.getToken();
     }
     render() {
         return (
@@ -16,11 +17,12 @@ class LogoutComponent extends Component {
 }
 
 // export default LogoutComponent;
-const mapStateToProps = ({ LoginReducer }) => ({
-    LoginReducer,
+const mapStateToProps = ({ LoginReducer,tokenReducer }) => ({
+    LoginReducer,tokenReducer
 });
 
 const mapDispatchToProps = {
-    logout
+    logout,
+    getToken
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LogoutComponent);

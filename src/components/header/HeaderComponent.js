@@ -15,7 +15,7 @@ class HeaderComponent extends Component {
         
     }
     static getDerivedStateFromProps(props, state) {
-        console.log(localStorage.getItem(server.TOKEN_KEY));
+        // console.log(localStorage.getItem(server.TOKEN_KEY));
         if (localStorage.getItem(server.TOKEN_KEY) != null) {
             return{
                 showLogout:true

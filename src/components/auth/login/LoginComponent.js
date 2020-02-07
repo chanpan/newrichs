@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import { login } from '../../../actions/LoginAction';
+import { login,getToken } from '../../../actions/LoginAction';
 import { connect } from 'react-redux';
 import * as Yup from 'yup';
 import { server } from "../../../constants";
@@ -55,7 +55,7 @@ class LoginComponent extends Component {
          
         return (
             <div>
-                {!isFetching && isError && <div style={{color:'red'}}>{errMessage}</div>} 
+                {!isFetching && isError && isError && <div style={{color:'red'}}>{errMessage}</div>} 
                 <Formik
                     validationSchema={SignupSchema}
                     initialValues={{ username: "admin", password: "admin" }}
@@ -64,6 +64,7 @@ class LoginComponent extends Component {
                         formData.append("username", values.username);
                         formData.append("password", values.password);
                         this.props.login(formData, this.props.history);
+                        setTimeout(()=>{  this.props.getToken(this.props.history); },500)
                         setSubmitting(false)
                     }}>
                     {props => this.showForm(props)}
@@ -79,6 +80,6 @@ const mapStateToProps = ({ LoginReducer }) => ({
 });
 
 const mapDispatchToProps = {
-    login
+    login,getToken
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
