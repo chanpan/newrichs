@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456",
+      "roles": [
+        "admin"
+      ],
+      "token": "01920192"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123456",
+      "roles": [
+        "user"
+      ],
+      "token": "09859485"
+    },
+    {
+      "id": "3",
+      "username": "user2",
+      "password": "123456",
+      "roles": [
+        "user"
+      ],
+      "token": "12321"
+    }
+  ]
+}

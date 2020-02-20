@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { BrowserRouter as Router, Route, Redirect ,Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import './App.css';
 
 /** components */
@@ -37,8 +37,7 @@ const SecuredRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
   componentDidMount(){
     this.props.getToken();
-  } 
- 
+  }
   render() {
     // console.log(this.props.tokenReducer);
     let {token} = this.props.tokenReducer;
@@ -51,7 +50,6 @@ class App extends Component {
       <SecuredRoute path="/dashboard" component={DashboardComponent}/>
       <SecuredRoute path="/user" component={UserComponent} />
       <SecuredRoute path="/logout" component={LogoutComponent}/>
-
       <Route path="/register" component={RegisterComponent} />
       <Route path="/login" component={LoginComponent} />
     </Router>

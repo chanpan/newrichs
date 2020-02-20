@@ -12,8 +12,8 @@ export const NOT_CONNECT_NETWORK = 'NOT_CONNECT_NETWORK'
 
 //GET_TOKEN
 export const GET_TOKEN = "GET_TOKEN";
-export const apiUrl =  "http://localhost/carpool_table/";
+export const apiUrl =  "http://localhost:3004";
 export const server = {
     TOKEN_KEY : `token`,
-    LOGIN_URL:`auth/login.php`
+    LOGIN_URL:`/user`
 }

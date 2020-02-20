@@ -26,6 +26,18 @@ export const login = (value, history) => {
     return async dispatch => {
         try {
             dispatch(setFetching()); // fetching
+            //mock login
+            try{
+                localStorage.setItem(server.TOKEN_KEY, 123456);
+                dispatch(setSuccess({user_id:'1'}));
+                //console.log(history);
+                //history.push('dashboard')
+            }catch (error) {
+                //console.log(error);
+                dispatch(setFailed(error.message));
+            }
+            return false;
+            //end mock login
             let result = await httpClient.post(server.LOGIN_URL, value);
             if (result.data.status === 'ok') {
                 let {data} = result.data;
@@ -58,7 +70,7 @@ export const logout = (history) => {
 
 
 export const getToken = (history) => {
-    console.log('get token')
+    // console.log('get token');
     return (dispatch) => {
         let token = localStorage.getItem(server.TOKEN_KEY);
         dispatch(setToken(token));

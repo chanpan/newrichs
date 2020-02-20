@@ -5,12 +5,24 @@ import { connect } from 'react-redux';
 import * as Yup from 'yup';
 import { server } from "../../../constants";
 import { Link } from 'react-router-dom';
+import FacebookLoginWithButton from 'react-facebook-login';
 
 class LoginComponent extends Component {
     componentDidMount() {
+        this.isAuthentication();
+    }
+    isAuthentication(){
         if (localStorage.getItem(server.TOKEN_KEY) != null) {
-            this.props.history.push("/dashboard")
+            this.props.history.push("/dashboard");
         }
+    }
+
+    responseFacebook = (response) => {
+        console.log(response);
+    }
+
+    componentClicked = () => {
+        console.log( "Clicked!" )
     }
     showForm = ({ values, handleChange, handleSubmit, setFieldValue, errors, touched }) => {
         return (
@@ -35,6 +47,13 @@ class LoginComponent extends Component {
                 </div>
                 <div>
                     <button type='submit'>Login</button>
+                    <FacebookLoginWithButton
+                        appId="1206715649505081"
+                        autoLoad
+                        fields="name,email,picture"
+                        onClick={this.componentClicked}
+                        callback={this.responseFacebook}
+                        icon="fa-facebook"/>
                     <div>
                         <Link to="/register">
                         สมัครสมาชิก
@@ -64,8 +83,11 @@ class LoginComponent extends Component {
                         formData.append("username", values.username);
                         formData.append("password", values.password);
                         this.props.login(formData, this.props.history);
-                        setTimeout(()=>{  this.props.getToken(this.props.history); },500)
-                        setSubmitting(false)
+                        setTimeout(()=>{
+                            this.isAuthentication();
+                            this.props.getToken();
+                        },500)
+                        setSubmitting(false)  
                     }}>
                     {props => this.showForm(props)}
                 </Formik>
