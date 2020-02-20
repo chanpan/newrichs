@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/newrich2/static/css/main.d1b05096.chunk.css",
+    "main.js": "/newrich2/static/js/main.31d8d32d.chunk.js",
+    "main.js.map": "/newrich2/static/js/main.31d8d32d.chunk.js.map",
+    "runtime-main.js": "/newrich2/static/js/runtime-main.e8f4eddd.js",
+    "runtime-main.js.map": "/newrich2/static/js/runtime-main.e8f4eddd.js.map",
+    "static/js/2.b758245b.chunk.js": "/newrich2/static/js/2.b758245b.chunk.js",
+    "static/js/2.b758245b.chunk.js.map": "/newrich2/static/js/2.b758245b.chunk.js.map",
+    "index.html": "/newrich2/index.html",
+    "precache-manifest.5b15028256ffea92d98d105b634fb14d.js": "/newrich2/precache-manifest.5b15028256ffea92d98d105b634fb14d.js",
+    "service-worker.js": "/newrich2/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/newrich2/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.b758245b.chunk.js.LICENSE.txt": "/newrich2/static/js/2.b758245b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e8f4eddd.js",
+    "static/js/2.b758245b.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.31d8d32d.chunk.js"
+  ]
+}
